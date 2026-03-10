@@ -73,6 +73,6 @@ Log("]");
 9. Open log file (Beer Manufacture Simulator\BepInEx\LogOutput.log) and copy resulting output. Remove `[Message:UnityExplorer]`
 10. Save resulted data as ingredients.json into the simplify folder and run cmd **python simplifyJson.py**
 11. It would create file **ingredients_merged_best.json**. Save it as **ingredients.json** next to the **calculator.py**
-12. Done. 
+12. Done. You can rename winhttp.dll to winhttp.dll.bak, this way the game would keep both mod and plugin, but would not run them untill you change name back to dll.
 
 As long as the developers won't change the fact that all ingredients have the same stats no matter the quality it should work.
