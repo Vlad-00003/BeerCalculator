@@ -1,0 +1,2054 @@
+[
+	{
+		"Name": "Большой мешок солода Haller Gold среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.05
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок солода Bristford Brown",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.35,
+			"Hefeweizen_1": 0.25,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок базового солода Coldra Pale",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок солода Haller Gold",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.05
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок солода Bristford Brown высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.35,
+			"Hefeweizen_1": 0.25,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок солода Bristford Brown среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.35,
+			"Hefeweizen_1": 0.25,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок солода Carmond Amber высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.2,
+			"Hefeweizen_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 5,
+			"Lightness": 0,
+			"Acidity": 3,
+			"Sweetness": 1,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок солода Carmond Amber низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.2,
+			"Hefeweizen_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 5,
+			"Lightness": 0,
+			"Acidity": 3,
+			"Sweetness": 1,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок солода Carmond Amber среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.2,
+			"Hefeweizen_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 5,
+			"Lightness": 0,
+			"Acidity": 3,
+			"Sweetness": 1,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок солода Clearbase Pale высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 2,
+			"Lightness": 5,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок солода Clearbase Pale низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 2,
+			"Lightness": 5,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок солода Clearbase Pale среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 2,
+			"Lightness": 5,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок базового солода Coldra Pale высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок базового солода Coldra Pale среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок солода Deepfield Red высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 3,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок солода Deepfield Red низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 3,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок солода Deepfield Red среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 3,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок солода Haller Gold высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.05
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок солода Silken What высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.08
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 1,
+			"Lightness": 5,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок солода Silken What низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.08
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 1,
+			"Lightness": 5,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок солода Silken What среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.08
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 1,
+			"Lightness": 5,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Fuggwell",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 1,
+			"Sweetness": 2,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Cascadear",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.3
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 3,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Haller Bruck",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 2,
+			"Sweetness": 0,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Cascadear высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.3
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 3,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Cascadear среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.3
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 3,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Citrivale высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Citrivale низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Citrivale среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Farnwood Flora высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.15,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Farnwood Flora низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.15,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Farnwood Flora среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.15,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Fuggwell высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 1,
+			"Sweetness": 2,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Fuggwell среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 1,
+			"Sweetness": 2,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Haller Bruck высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 2,
+			"Sweetness": 0,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Haller Bruck среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 2,
+			"Sweetness": 0,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Tropicflare высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.27,
+			"AmericanIpa_1": 0.35
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 5,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Tropicflare низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.27,
+			"AmericanIpa_1": 0.35
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 5,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок хмеля Tropicflare среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.27,
+			"AmericanIpa_1": 0.35
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 5,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Yeastwell",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 2,
+			"Sweetness": 2,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Fermix",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Wild Hopcell",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 3,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Bavaria Cloud высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.1,
+			"Hefeweizen_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Bavaria Cloud низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.1,
+			"Hefeweizen_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Bavaria Cloud среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.1,
+			"Hefeweizen_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Citrus Lift высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 2,
+			"Acidity": 5,
+			"Sweetness": 0,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Citrus Lift низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 2,
+			"Acidity": 5,
+			"Sweetness": 0,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Citrus Lift среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 2,
+			"Acidity": 5,
+			"Sweetness": 0,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Fermix высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Fermix среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Rustic Crown высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.05,
+			"AmericanIpa_1": 0.12
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 5,
+			"Lightness": 2,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Rustic Crown низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.05,
+			"AmericanIpa_1": 0.12
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 5,
+			"Lightness": 2,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Rustic Crown среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.05,
+			"AmericanIpa_1": 0.12
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 5,
+			"Lightness": 2,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Wild Hopcell высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 3,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Yeastwell высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 2,
+			"Sweetness": 2,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Yeastwell среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 2,
+			"Sweetness": 2,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Большой мешок дрожжей Wild Hopcell среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 3,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Хмель Cascadear высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.3
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 3,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Хмель Cascadear низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.3
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 3,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Хмель Cascadear среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.3
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 3,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Хмель Citrivale высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Хмель Citrivale низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Хмель Citrivale среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Хмель Farnwood Flora высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.15,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Хмель Farnwood Flora низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.15,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Хмель Farnwood Flora среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.15,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Хмель Fuggwell высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 1,
+			"Sweetness": 2,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Хмель Fuggwell низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 1,
+			"Sweetness": 2,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Хмель Fuggwell среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 1,
+			"Sweetness": 2,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Хмель Haller Bruck высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 2,
+			"Sweetness": 0,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Хмель Haller Bruck низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 2,
+			"Sweetness": 0,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Хмель Haller Bruck среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 2,
+			"Sweetness": 0,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Хмель Tropicflare высокого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.27,
+			"AmericanIpa_1": 0.35
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 5,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Хмель Tropicflare низкого качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.27,
+			"AmericanIpa_1": 0.35
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 5,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Хмель Tropicflare среднего качества",
+		"Type": "Hops",
+		"PerfectTemp": 95,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.27,
+			"AmericanIpa_1": 0.35
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 5,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Солод Bristford Brown высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.35,
+			"Hefeweizen_1": 0.25,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Солод Bristford Brown низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.35,
+			"Hefeweizen_1": 0.25,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Солод Bristford Brown среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.35,
+			"Hefeweizen_1": 0.25,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 1,
+			"Sweetness": 5,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Солод Carmond Amber высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.2,
+			"Hefeweizen_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 5,
+			"Lightness": 0,
+			"Acidity": 3,
+			"Sweetness": 1,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Солод Carmond Amber низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.2,
+			"Hefeweizen_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 5,
+			"Lightness": 0,
+			"Acidity": 3,
+			"Sweetness": 1,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Солод Carmond Amber среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.2,
+			"Hefeweizen_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 5,
+			"Lightness": 0,
+			"Acidity": 3,
+			"Sweetness": 1,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Солод Clearbase Pale высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 2,
+			"Lightness": 5,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Солод Clearbase Pale низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 2,
+			"Lightness": 5,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Солод Clearbase Pale среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.2,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.25
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 2,
+			"Lightness": 5,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Солод Coldra Pale высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Солод Coldra Pale низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Солод Coldra Pale среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 4,
+			"Lightness": 1,
+			"Acidity": 4,
+			"Sweetness": 0,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Солод Deepfield Red высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 3,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Солод Deepfield Red низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 3,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Солод Deepfield Red среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 3,
+			"Lightness": 3,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Солод Haller Gold высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.05
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Солод Haller Gold низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.05
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Солод Haller Gold среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.05
+		},
+		"Parameters": {
+			"Refreshment": 4,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 1,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Солод Silken What высокого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.08
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 1,
+			"Lightness": 5,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Солод Silken What низкого качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.08
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 1,
+			"Lightness": 5,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Солод Silken What среднего качества",
+		"Type": "Malts",
+		"PerfectTemp": 65,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.3,
+			"AmericanIpa_1": 0.08
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 1,
+			"Lightness": 5,
+			"Acidity": 2,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Дрожжи Bavaria Cloud высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.1,
+			"Hefeweizen_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Дрожжи Bavaria Cloud низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.1,
+			"Hefeweizen_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Дрожжи Bavaria Cloud среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"AmericanIpa_1": 0.1,
+			"Hefeweizen_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Дрожжи Citrus Lift высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 2,
+			"Acidity": 5,
+			"Sweetness": 0,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Дрожжи Citrus Lift низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 2,
+			"Acidity": 5,
+			"Sweetness": 0,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Дрожжи Citrus Lift среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.2
+		},
+		"Parameters": {
+			"Refreshment": 3,
+			"Heaviness": 4,
+			"Lightness": 2,
+			"Acidity": 5,
+			"Sweetness": 0,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Дрожжи Fermix высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Дрожжи Fermix низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Дрожжи Fermix среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0.2,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 0,
+			"Lightness": 4,
+			"Acidity": 2,
+			"Sweetness": 4,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Дрожжи Rustic Crown высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.05,
+			"AmericanIpa_1": 0.12
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 5,
+			"Lightness": 2,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Дрожжи Rustic Crown низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.05,
+			"AmericanIpa_1": 0.12
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 5,
+			"Lightness": 2,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Дрожжи Rustic Crown среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.15,
+			"Hefeweizen_1": 0.05,
+			"AmericanIpa_1": 0.12
+		},
+		"Parameters": {
+			"Refreshment": 1,
+			"Heaviness": 5,
+			"Lightness": 2,
+			"Acidity": 3,
+			"Sweetness": 3,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Дрожжи Wild Hopcell высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 3,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Дрожжи Wild Hopcell низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 3,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Дрожжи Wild Hopcell среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.1,
+			"Hefeweizen_1": 0,
+			"AmericanIpa_1": 0.15
+		},
+		"Parameters": {
+			"Refreshment": 5,
+			"Heaviness": 1,
+			"Lightness": 3,
+			"Acidity": 5,
+			"Sweetness": 2,
+			"Rate": 9
+		}
+	},
+	{
+		"Name": "Дрожжи Yeastwell высокого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 2,
+			"Sweetness": 2,
+			"Rate": 15
+		}
+	},
+	{
+		"Name": "Дрожжи Yeastwell низкого качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 2,
+			"Sweetness": 2,
+			"Rate": 4
+		}
+	},
+	{
+		"Name": "Дрожжи Yeastwell среднего качества",
+		"Type": "Yeast",
+		"PerfectTemp": 12,
+		"Styles": {
+			"Ale_1": 0.25,
+			"Hefeweizen_1": 0.1,
+			"AmericanIpa_1": 0.1
+		},
+		"Parameters": {
+			"Refreshment": 2,
+			"Heaviness": 2,
+			"Lightness": 2,
+			"Acidity": 2,
+			"Sweetness": 2,
+			"Rate": 9
+		}
+	}
+]
