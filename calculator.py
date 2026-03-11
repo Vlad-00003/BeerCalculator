@@ -1,7 +1,6 @@
 import json
 import itertools
-import re
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Tuple, Optional, Set
 from collections import defaultdict
 
 class Ingredient:
@@ -16,41 +15,41 @@ class Ingredient:
         return f"Ingredient(name='{self.name}', type='{self.type}')"
 
 class CraftCalculator:
-    # Словарь для перевода стилей
+    # Style translation dictionary
     STYLE_TRANSLATION = {
         'Ale_1': 'Bristford Ale',
         'Hefeweizen_1': 'Hallbruck Hellas',
         'AmericanIpa_1': 'Cascadear IPA'
     }
     
-    # Обратный словарь для поиска по пользовательскому вводу
+    # Reverse dictionary for user input lookup
     STYLE_REVERSE = {v.lower(): k for k, v in STYLE_TRANSLATION.items()}
     
-    # Список доступных стилей
+    # List of available styles for display
     AVAILABLE_STYLES = list(STYLE_TRANSLATION.values())
     
-    # Значимые параметры
+    # Significant parameters
     VALID_PARAMS = ['Refreshment', 'Heaviness', 'Lightness', 'Acidity', 'Sweetness']
     
     def __init__(self, json_file_path: str):
         """
-        Инициализация калькулятора с подготовленным JSON файлом
+        Initialize calculator with prepared JSON file
         """
         self.ingredients = self.load_ingredients_from_json(json_file_path)
         
-        # Разделяем ингредиенты по типам
+        # Split ingredients by type
         self.malts = [i for i in self.ingredients if i.type == "Malts"]
         self.hops = [i for i in self.ingredients if i.type == "Hops"]
         self.yeast = [i for i in self.ingredients if i.type == "Yeast"]
         
-        print(f"📊 Ingredients loaded: {len(self.ingredients)}")
+        print(f"📊 Loaded ingredients: {len(self.ingredients)}")
         print(f"  🌾 Malts: {len(self.malts)}")
         print(f"  🌿 Hops: {len(self.hops)}")
         print(f"  🧪 Yeast: {len(self.yeast)}")
     
     def load_ingredients_from_json(self, file_path: str) -> List[Ingredient]:
         """
-        Загружает ингредиенты из подготовленного JSON файла
+        Load ingredients from prepared JSON file
         """
         try:
             with open(file_path, 'r', encoding='utf-8') as file:
@@ -58,17 +57,17 @@ class CraftCalculator:
             
             ingredients = []
             for item in data:
-                # Проверяем, что все необходимые поля есть
+                # Check that all required fields exist
                 if 'Name' not in item or 'Type' not in item or 'PerfectTemp' not in item:
-                    print(f"⚠️ Ingredient skipped: required fields missing")
+                    print(f"⚠️ Skipped ingredient: missing required fields")
                     continue
                 
                 ingredient = Ingredient(
                     name=item['Name'],
                     type=item['Type'],
                     perfect_temp=item['PerfectTemp'],
-                    style=item.get('Styles', {}),  # Если нет Styles, используем пустой словарь
-                    params=item.get('Parameters', {})  # Если нет Parameters, используем пустой словарь
+                    style=item.get('Styles', {}),
+                    params=item.get('Parameters', {})
                 )
                 ingredients.append(ingredient)
             
@@ -77,11 +76,13 @@ class CraftCalculator:
         except FileNotFoundError:
             raise Exception(f"❌ File {file_path} not found")
         except json.JSONDecodeError as e:
-            raise Exception(f"❌ JSON format exception: {e}")
+            raise Exception(f"❌ JSON format error: {e}")
     
     def translate_style(self, style_code: str, to_user: bool = True) -> str:
         """
-        Переводит стиль между кодом и пользовательским названием
+        Translate style between code and user-friendly name
+        to_user=True: code -> name
+        to_user=False: name -> code
         """
         if to_user:
             return self.STYLE_TRANSLATION.get(style_code, style_code)
@@ -90,21 +91,22 @@ class CraftCalculator:
     
     def parse_user_input(self, user_input: str) -> Tuple[Optional[str], Optional[List[str]]]:
         """
-        Разбирает пользовательский ввод на стиль и параметры
+        Parse user input into style and parameters
+        Supports multi-word style names
         """
         user_input = user_input.strip()
         user_input_lower = user_input.lower()
         
-        # Сортируем стили по длине для правильного поиска
+        # Sort styles by length for correct matching
         sorted_styles = sorted(self.STYLE_REVERSE.keys(), key=len, reverse=True)
         
         for style_lower in sorted_styles:
             if user_input_lower.startswith(style_lower):
-                # Нашли стиль
+                # Found style
                 style_display = next(v for k, v in self.STYLE_TRANSLATION.items() 
                                    if v.lower() == style_lower)
                 
-                # Остаток строки - параметры
+                # Remaining string is parameters
                 remaining = user_input[len(style_lower):].strip()
                 params = remaining.split() if remaining else None
                 
@@ -114,48 +116,48 @@ class CraftCalculator:
     
     def calculate_result(self, malt: Ingredient, hop: Ingredient, yeast: Ingredient) -> Dict:
         """
-        Рассчитывает результат комбинации трёх ингредиентов
+        Calculate result of combining three ingredients
         """
-        # Определяем стиль
+        # Calculate style scores
         style_scores = {}
         for ing in [malt, hop, yeast]:
             for style, weight in ing.style.items():
                 style_scores[style] = style_scores.get(style, 0) + weight
         
-        # Если нет стилей, возвращаем ошибку
+        # If no styles, return error
         if not style_scores:
             return {
-                'error': 'Нет данных о стилях',
+                'error': 'No style data',
                 'malt': malt.name,
                 'hop': hop.name,
                 'yeast': yeast.name
             }
         
-        # Находим максимальное значение
+        # Find maximum value
         sorted_styles = sorted(style_scores.items(), key=lambda x: x[1], reverse=True)
         max_score = sorted_styles[0][1]
         
-        # Проверяем на ничью
+        # Check for tie
         max_count = sum(1 for _, score in style_scores.items() if abs(score - max_score) < 0.01)
         is_tie = max_count >= 2
         
         if is_tie:
             result_style = sorted_styles[0][0]
-            result_style_display = f"{self.translate_style(result_style)} ⚠️ (ничья)"
+            result_style_display = f"{self.translate_style(result_style)}"
         else:
             result_style = sorted_styles[0][0]
             result_style_display = self.translate_style(result_style)
         
-        # Определяем параметры
+        # Calculate parameters
         param_scores = {}
         for ing in [malt, hop, yeast]:
             for param, value in ing.params.items():
-                if param in self.VALID_PARAMS:  # Учитываем только значимые параметры
+                if param in self.VALID_PARAMS:
                     param_scores[param] = param_scores.get(param, 0) + value
         
         active_params = [param for param, value in param_scores.items() if value >= 10]
         
-        # Формируем детали стилей для вывода
+        # Format style details for display
         style_details = []
         for style_code, score in style_scores.items():
             style_name = self.translate_style(style_code)
@@ -179,9 +181,11 @@ class CraftCalculator:
             }
         }
     
-    def find_combinations(self, target_style_display: str, target_params: List[str] = None) -> List[Dict]:
+    def find_combinations(self, target_style_display: str, target_params: List[str] = None, 
+                         exclude_ties: bool = True) -> List[Dict]:
         """
-        Находит все комбинации для заданного стиля и параметров
+        Find all combinations for given style and parameters
+        exclude_ties: if True, excludes tie combinations
         """
         target_style_code = self.translate_style(target_style_display, to_user=False)
         results = []
@@ -194,15 +198,16 @@ class CraftCalculator:
                 for yeast in self.yeast:
                     result = self.calculate_result(malt, hop, yeast)
                     
-                    # Пропускаем если ошибка
                     if 'error' in result:
                         continue
                     
-                    # Проверяем стиль (учитываем, что при ничье style всё равно определён)
+                    # Skip ties if needed
+                    if exclude_ties and result['is_tie']:
+                        continue
+                    
                     if result['style'] != target_style_code:
                         continue
                     
-                    # Проверяем параметры
                     if target_params:
                         formatted_params = [p.capitalize() for p in target_params]
                         if not all(param in result['active_params'] for param in formatted_params):
@@ -212,20 +217,231 @@ class CraftCalculator:
         
         return results
     
+    def find_minimal_coverage(self, target_style_display: str, exclude_ties: bool = True) -> List[List[Dict]]:
+        """
+        Find minimal set of combinations covering all possible properties
+        exclude_ties: if True, excludes tie combinations
+        """
+        target_style_code = self.translate_style(target_style_display, to_user=False)
+        
+        # Find all combinations for this style (excluding ties)
+        all_combinations = []
+        for malt in self.malts:
+            for hop in self.hops:
+                for yeast in self.yeast:
+                    result = self.calculate_result(malt, hop, yeast)
+                    if 'error' not in result and result['style'] == target_style_code:
+                        if exclude_ties and result['is_tie']:
+                            continue
+                        all_combinations.append(result)
+        
+        if not all_combinations:
+            return []
+        
+        # Get all possible properties
+        all_params = set(self.VALID_PARAMS)
+        
+        # For each combination, get set of active properties
+        combo_sets = []
+        for combo in all_combinations:
+            params_set = set(combo['active_params'])
+            if params_set:  # Only combinations with at least one property
+                combo_sets.append((combo, params_set))
+        
+        if not combo_sets:
+            return []
+        
+        # Use greedy algorithm to find coverage
+        uncovered = set(all_params)
+        selected_combos = []
+        selected_indices = set()
+        
+        while uncovered:
+            best_combo = None
+            best_coverage = set()
+            best_idx = -1
+            
+            for i, (combo, params_set) in enumerate(combo_sets):
+                if i in selected_indices:
+                    continue
+                
+                coverage = params_set & uncovered
+                if len(coverage) > len(best_coverage):
+                    best_coverage = coverage
+                    best_combo = combo
+                    best_idx = i
+            
+            if best_combo is None:
+                break
+            
+            selected_combos.append(best_combo)
+            selected_indices.add(best_idx)
+            uncovered -= best_coverage
+        
+        return [selected_combos]
+    
+    def find_all_minimal_coverages(self, target_style_display: str, exclude_ties: bool = True) -> List[List[Dict]]:
+        """
+        Find ALL possible minimal coverage sets (more accurate algorithm)
+        exclude_ties: if True, excludes tie combinations
+        """
+        target_style_code = self.translate_style(target_style_display, to_user=False)
+        
+        # Find all combinations (excluding ties)
+        all_combinations = []
+        for malt in self.malts:
+            for hop in self.hops:
+                for yeast in self.yeast:
+                    result = self.calculate_result(malt, hop, yeast)
+                    if 'error' not in result and result['style'] == target_style_code:
+                        if exclude_ties and result['is_tie']:
+                            continue
+                        all_combinations.append(result)
+        
+        if not all_combinations:
+            return []
+        
+        # Create dictionary combo -> property set
+        combo_dict = {}
+        for combo in all_combinations:
+            params_set = frozenset(combo['active_params'])
+            if params_set:
+                key = (combo['malt'], combo['hop'], combo['yeast'])
+                combo_dict[key] = {
+                    'combo': combo,
+                    'params': params_set
+                }
+        
+        all_params = set(self.VALID_PARAMS)
+        
+        # Recursive function to find all minimal coverings
+        def find_coverings(remaining_params: Set[str], 
+                          available_combos: Dict, 
+                          current_solution: List,
+                          best_solutions: List,
+                          current_length: int = 0):
+            
+            # If we found a covering
+            if not remaining_params:
+                # If this is first solution or same length
+                if not best_solutions or current_length == len(best_solutions[0]):
+                    best_solutions.append(current_solution.copy())
+                elif current_length < len(best_solutions[0]):
+                    # Found better solution
+                    best_solutions.clear()
+                    best_solutions.append(current_solution.copy())
+                return
+            
+            # Prune if we already exceed best solution length
+            if best_solutions and current_length >= len(best_solutions[0]):
+                return
+            
+            # Try adding each combination
+            for key, data in list(available_combos.items()):
+                new_params = data['params'] & remaining_params
+                if not new_params:
+                    continue
+                
+                # Create new sets for recursion
+                new_remaining = remaining_params - new_params
+                new_available = {k: v for k, v in available_combos.items() if k != key}
+                
+                current_solution.append(data['combo'])
+                find_coverings(new_remaining, new_available, current_solution, 
+                             best_solutions, current_length + 1)
+                current_solution.pop()
+        
+        # Start search
+        solutions = []
+        find_coverings(all_params, combo_dict, [], solutions)
+        
+        # Remove duplicates (solutions differing only in order)
+        unique_solutions = []
+        seen = set()
+        
+        for sol in solutions:
+            # Sort for comparison
+            sorted_sol = sorted([(c['malt'], c['hop'], c['yeast']) for c in sol])
+            key = tuple(sorted_sol)
+            if key not in seen:
+                seen.add(key)
+                unique_solutions.append(sol)
+        
+        return unique_solutions
+    
+    def print_minimal_coverage(self, target_style: str):
+        """
+        Print minimal coverage sets for a style
+        (excluding tie combinations)
+        """
+        print(f"\n🔍 SEARCHING FOR MINIMAL COVERAGE SET FOR {target_style}")
+        print("=" * 80)
+        
+        # Use accurate algorithm, excluding ties
+        solutions = self.find_all_minimal_coverages(target_style, exclude_ties=True)
+        
+        if not solutions:
+            print("❌ No combinations found covering all properties")
+            print("   (maybe all combinations have ties or no suitable ones)")
+            return
+        
+        print(f"\n✅ Found {len(solutions)} minimal coverage variants")
+        print(f"   Each set contains {len(solutions[0])} combinations")
+        print("=" * 80)
+        
+        for i, solution in enumerate(solutions, 1):
+            print(f"\n📦 VARIANT #{i}")
+            print("-" * 60)
+            
+            # Collect all properties covered by this set
+            covered_params = set()
+            for combo in solution:
+                covered_params.update(combo['active_params'])
+            
+            print(f"   Covered properties: {', '.join(sorted(covered_params))}")
+            print()
+            
+            for j, combo in enumerate(solution, 1):
+                print(f"   🍺 Combination {j}:")
+                print(f"      🌾 {combo['malt']}")
+                print(f"      🌿 {combo['hop']}")
+                print(f"      🧪 {combo['yeast']}")
+                print(f"      ⚡ Properties: {', '.join(combo['active_params'])}")
+                print()
+    
+    def find_combinations_by_params(self, target_style: str, required_params: List[str]) -> List[Dict]:
+        """
+        Find all combinations with given parameters (excluding ties)
+        """
+        target_style_code = self.translate_style(target_style, to_user=False)
+        formatted_params = [p.capitalize() for p in required_params]
+        
+        results = []
+        for malt in self.malts:
+            for hop in self.hops:
+                for yeast in self.yeast:
+                    result = self.calculate_result(malt, hop, yeast)
+                    if 'error' not in result and not result['is_tie'] and result['style'] == target_style_code:
+                        if all(param in result['active_params'] for param in formatted_params):
+                            results.append(result)
+        
+        return results
+    
     def print_combinations(self, target_style: str, target_params: List[str] = None):
         """
-        Выводит найденные комбинации
+        Print found combinations (excluding ties)
         """
-        combinations = self.find_combinations(target_style, target_params)
+        combinations = self.find_combinations(target_style, target_params, exclude_ties=True)
         
         if not combinations:
-            params_str = f" with attributes {target_params}" if target_params else ""
-            print(f"\n❌ Combinations for {target_style}{params_str} not found")
+            params_str = f" with parameters {target_params}" if target_params else ""
+            print(f"\n❌ No combinations found for {target_style}{params_str}")
+            print("   (maybe all combinations have ties)")
             return
         
         print(f"\n✅ Found {len(combinations)} combinations for {target_style}")
         if target_params:
-            print(f"📌 with attributes: {', '.join(target_params)}")
+            print(f"📌 With parameters: {', '.join(target_params)}")
         print("=" * 80)
         
         for i, combo in enumerate(combinations, 1):
@@ -234,16 +450,12 @@ class CraftCalculator:
             print(f"  🌿 Hops: {combo['hop']}")
             print(f"  🧪 Yeast: {combo['yeast']}")
             print(f"  🍺 Result: {combo['style_display']}")
-            
-            if combo['is_tie']:
-                print(f"     ⚠️ ATTENTION: Styles tied!")
-            
-            print(f"  📊 Style allocation: {', '.join(combo['style_details'])}")
-            print(f"  ⚡ Active attributes: {', '.join(combo['active_params']) if combo['active_params'] else 'нет'}")
+            print(f"  📊 Style distribution: {', '.join(combo['style_details'])}")
+            print(f"  ⚡ Active properties: {', '.join(combo['active_params']) if combo['active_params'] else 'none'}")
             print(f"  🌡️  Temperatures: Malt:{combo['perfect_temps']['malt']}°C, Hop:{combo['perfect_temps']['hop']}°C, Yeast:{combo['perfect_temps']['yeast']}°C")
-            print(f"  📊 Attributes values:")
+            print(f"  📊 Parameter values:")
             
-            # Сортируем параметры по убыванию
+            # Sort parameters by value descending
             sorted_params = sorted(combo['params'].items(), key=lambda x: x[1], reverse=True)
             for param, value in sorted_params:
                 status = "✅" if value >= 10 else "❌"
@@ -252,7 +464,7 @@ class CraftCalculator:
     
     def find_tie_combinations(self) -> List[Dict]:
         """
-        Находит все комбинации с ничьёй
+        Find all combinations with ties
         """
         results = []
         
@@ -267,15 +479,15 @@ class CraftCalculator:
     
     def print_tie_combinations(self):
         """
-        Выводит все комбинации с ничьёй
+        Print all tie combinations
         """
         combinations = self.find_tie_combinations()
         
         if not combinations:
-            print("\n✅ Tie combinations not found")
+            print("\n✅ No tie combinations found")
             return
         
-        print(f"\n⚠️ FOUND {len(combinations)} TIED COMBINATIONS")
+        print(f"\n⚠️ FOUND {len(combinations)} TIE COMBINATIONS")
         print("=" * 80)
         
         for i, combo in enumerate(combinations, 1):
@@ -283,39 +495,43 @@ class CraftCalculator:
             print(f"  🌾 Malts: {combo['malt']}")
             print(f"  🌿 Hops: {combo['hop']}")
             print(f"  🧪 Yeast: {combo['yeast']}")
-            print(f"  📊 Style allocation: {', '.join(combo['style_details'])}")
-            print(f"  ⚡ Attributes values: {', '.join(combo['active_params']) if combo['active_params'] else 'нет'}")
+            print(f"  📊 Style distribution: {', '.join(combo['style_details'])}")
+            print(f"  ⚡ Active properties: {', '.join(combo['active_params']) if combo['active_params'] else 'none'}")
 
 def print_help():
-    """Выводит справку по командам"""
+    """Print help information"""
     print("\n" + "="*60)
-    print("📖 COMMANDS HELP")
+    print("📖 HELP")
     print("="*60)
     print("  🍺 STYLES:")
     print("     • Bristford Ale")
     print("     • Hallbruck Hellas")
     print("     • Cascadear IPA")
-    print("\n  ⚡ ATTRIBUTES:")
+    print("\n  ⚡ PARAMETERS:")
     print("     • Refreshment, Heaviness, Lightness, Acidity, Sweetness")
     print("\n  📝 EXAMPLES:")
     print("     • Bristford Ale")
     print("     • Hallbruck Hellas lightness refreshment")
     print("     • cascadear ipa sweetness")
-    print("\n  🛠️  COMMANDS:")
-    print("     • ties - show all tied combinations")
-    print("     • stats - shows statistics")
-    print("     • help - show this info")
-    print("     • exit - close calculator")
+    print("\n  🎯 SPECIAL COMMANDS:")
+    print("     • cover <style> - find minimal set covering all properties")
+    print("     • ties - show all tie combinations")
+    print("     • stats - show statistics")
+    print("     • help - show this help")
+    print("     • exit - exit program")
+    print("\n  ℹ️  NOTE:")
+    print("     • Tie combinations are automatically excluded from regular search")
+    print("     • Use 'ties' to see all tie combinations")
     print("="*60)
 
 def main():
-    """Основная функция"""
+    """Main function with continuous input loop"""
     print("="*60)
-    print("🍺 BEET CRAFT CALCULATOR (simplified version)")
+    print("🍺 CRAFTING CALCULATOR (v2)")
     print("="*60)
     
-    # Укажи путь к подготовленному JSON файлу
-    json_file = "ingredients.json"  # или используй другой файл
+    # Specify path to prepared JSON file
+    json_file = "ingredients.json"
     
     try:
         calculator = CraftCalculator(json_file)
@@ -324,12 +540,12 @@ def main():
         while True:
             try:
                 print("\n" + ">"*40)
-                user_input = input("🔍 Enter your query: ").strip()
+                user_input = input("🔍 Enter query: ").strip()
                 
                 if not user_input:
                     continue
                 
-                # Обработка команд
+                # Handle commands
                 if user_input.lower() == 'exit':
                     print("👋 Goodbye!")
                     break
@@ -350,17 +566,27 @@ def main():
                     calculator.print_tie_combinations()
                     continue
                 
-                # Разбираем ввод
+                # Handle cover command
+                if user_input.lower().startswith('cover '):
+                    style = user_input[6:].strip()  # Remove 'cover ' from start
+                    if style:
+                        calculator.print_minimal_coverage(style)
+                    else:
+                        print("❌ Please specify a style after 'cover'")
+                    continue
+                
+                # Parse regular input
                 style, params = calculator.parse_user_input(user_input)
                 
                 if style is None:
-                    print(f"\n❌ Unknown style!")
+                    print(f"\n❌ Style not recognized!")
                     print(f"   Available styles: {', '.join(calculator.AVAILABLE_STYLES)}")
+                    print(f"   Use 'cover <style>' to find minimal coverage")
                     continue
                 
                 print(f"\n🔎 Searching for style: {style}")
                 if params:
-                    print(f"   with attributes: {params}")
+                    print(f"   With parameters: {params}")
                 
                 calculator.print_combinations(style, params)
                 
@@ -368,7 +594,7 @@ def main():
                 print("\n\n👋 Goodbye!")
                 break
             except Exception as e:
-                print(f"\n❌ Exception: {e}")
+                print(f"\n❌ Error: {e}")
     
     except Exception as e:
         print(f"❌ {e}")
