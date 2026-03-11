@@ -2,6 +2,8 @@ import json
 import itertools
 from typing import List, Dict, Tuple, Optional, Set
 from collections import defaultdict
+import os
+from datetime import datetime
 
 class Ingredient:
     def __init__(self, name: str, type: str, perfect_temp: int, style: Dict[str, float], params: Dict[str, float]):
@@ -369,9 +371,90 @@ class CraftCalculator:
         
         return unique_solutions
     
-    def print_minimal_coverage(self, target_style: str):
+    def save_coverage_to_file(self, target_style: str, solutions: List[List[Dict]], filename: str = None):
         """
-        Print minimal coverage sets for a style
+        Save coverage results to a human-readable text file
+        """
+        if not filename:
+            # Create filename from style name
+            safe_style = target_style.replace(' ', '_').lower()
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"coverage_{safe_style}_{timestamp}.txt"
+        
+        try:
+            with open(filename, 'w', encoding='utf-8') as f:
+                # Write header
+                f.write("=" * 80 + "\n")
+                f.write(f"🍺 CRAFTING CALCULATOR - COVERAGE REPORT\n")
+                f.write("=" * 80 + "\n\n")
+                
+                f.write(f"📅 Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write(f"🎯 Style: {target_style}\n")
+                f.write(f"📊 Total variants found: {len(solutions)}\n")
+                f.write(f"📦 Combinations per variant: {len(solutions[0]) if solutions else 0}\n\n")
+                
+                for i, solution in enumerate(solutions, 1):
+                    f.write("=" * 80 + "\n")
+                    f.write(f"📦 VARIANT #{i}\n")
+                    f.write("=" * 80 + "\n\n")
+                    
+                    # Collect all properties covered by this set
+                    covered_params = set()
+                    for combo in solution:
+                        covered_params.update(combo['active_params'])
+                    
+                    f.write(f"   Covered properties: {', '.join(sorted(covered_params))}\n\n")
+                    
+                    for j, combo in enumerate(solution, 1):
+                        f.write(f"   🍺 COMBINATION {j}:\n")
+                        f.write(f"      {'=' * 40}\n")
+                        f.write(f"      🌾 MALT:    {combo['malt']}\n")
+                        f.write(f"      🌿 HOP:     {combo['hop']}\n")
+                        f.write(f"      🧪 YEAST:   {combo['yeast']}\n")
+                        f.write(f"      {'-' * 40}\n")
+                        f.write(f"      ⚡ ACTIVE PROPERTIES:\n")
+                        if combo['active_params']:
+                            for param in combo['active_params']:
+                                f.write(f"         • {param}\n")
+                        else:
+                            f.write(f"         • None\n")
+                        
+                        f.write(f"\n      📊 PARAMETER VALUES:\n")
+                        # Sort parameters by value descending
+                        sorted_params = sorted(combo['params'].items(), key=lambda x: x[1], reverse=True)
+                        for param, value in sorted_params:
+                            status = "✓" if value >= 10 else "✗"
+                            bar = "█" * int(value) + "░" * (10 - int(value))
+                            f.write(f"         {param:12}: {value:5.1f} {status} {bar}\n")
+                        
+                        f.write(f"\n      🌡️  TEMPERATURES:\n")
+                        f.write(f"         Malt:  {combo['perfect_temps']['malt']}°C\n")
+                        f.write(f"         Hop:   {combo['perfect_temps']['hop']}°C\n")
+                        f.write(f"         Yeast: {combo['perfect_temps']['yeast']}°C\n")
+                        
+                        f.write(f"\n      📊 STYLE DISTRIBUTION:\n")
+                        for detail in combo['style_details']:
+                            f.write(f"         • {detail}\n")
+                        
+                        f.write(f"\n")
+                    
+                    f.write("\n")
+                
+                # Write footer
+                f.write("=" * 80 + "\n")
+                f.write("🏁 END OF REPORT\n")
+                f.write("=" * 80 + "\n")
+            
+            print(f"\n💾 Report saved to: {filename}")
+            return filename
+            
+        except Exception as e:
+            print(f"\n❌ Error saving file: {e}")
+            return None
+    
+    def print_minimal_coverage(self, target_style: str, save_to_file: bool = True):
+        """
+        Print minimal coverage sets for a style and optionally save to file
         (excluding tie combinations)
         """
         print(f"\n🔍 SEARCHING FOR MINIMAL COVERAGE SET FOR {target_style}")
@@ -408,6 +491,10 @@ class CraftCalculator:
                 print(f"      🧪 {combo['yeast']}")
                 print(f"      ⚡ Properties: {', '.join(combo['active_params'])}")
                 print()
+        
+        # Save to file if requested
+        if save_to_file:
+            self.save_coverage_to_file(target_style, solutions)
     
     def find_combinations_by_params(self, target_style: str, required_params: List[str]) -> List[Dict]:
         """
@@ -520,14 +607,14 @@ def print_help():
     print("     • help - show this help")
     print("     • exit - exit program")
     print("\n  ℹ️  NOTE:")
-    print("     • Tie combinations are automatically excluded from regular search")
-    print("     • Use 'ties' to see all tie combinations")
+    print("     • Cover results are automatically saved to a text file")
+    print("     • Tie combinations are excluded from regular search")
     print("="*60)
 
 def main():
     """Main function with continuous input loop"""
     print("="*60)
-    print("🍺 CRAFTING CALCULATOR (v2)")
+    print("🍺 CRAFTING CALCULATOR (v2.1)")
     print("="*60)
     
     # Specify path to prepared JSON file
@@ -570,7 +657,7 @@ def main():
                 if user_input.lower().startswith('cover '):
                     style = user_input[6:].strip()  # Remove 'cover ' from start
                     if style:
-                        calculator.print_minimal_coverage(style)
+                        calculator.print_minimal_coverage(style, save_to_file=True)
                     else:
                         print("❌ Please specify a style after 'cover'")
                     continue
