@@ -1,6 +1,6 @@
 # BeerCalculator
 Searches all available beer combinations with specific attributes for the game [Beer Manufacture Simulator](https://store.steampowered.com/app/3809410/Beer_Manufacture_Simulator/)
-Currently it has data from v1.0.1
+Currently it has data from v1.0.2
 
 This entire project was pretty much vibe-coded with DeepSeek, so there might be bugs and errors.
 I'm not sure that I would keep this project up-to-date, and it's distributed As-Is.
