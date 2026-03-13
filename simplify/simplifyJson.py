@@ -1,301 +1,222 @@
 import json
 import re
 from collections import defaultdict
+from typing import Dict, List, Tuple, Set
+
+def clean_name(name: str) -> str:
+    """
+    Очищает название ингредиента от лишних слов
+    """
+    # Убираем "Большой мешок" в начале
+    name = re.sub(r'^Большой мешок\s+', '', name)
+    
+    # Убираем "базового" если есть
+    name = re.sub(r'^базового\s+', '', name)
+    
+    # Убираем тип ингредиента в разных падежах
+    name = re.sub(r'^(солод|солода|хмель|хмеля|дрожжи|дрожжей)\s+', '', name, flags=re.IGNORECASE)
+    
+    # Убираем качество в конце
+    name = re.sub(r'\s+(высокого|среднего|низкого)\s+качества$', '', name)
+    
+    return name.strip()
+
+def extract_quality(name: str) -> str:
+    """
+    Извлекает качество из названия
+    """
+    quality_match = re.search(r'(высокого|среднего|низкого)\s+качества', name)
+    return quality_match.group(1) if quality_match else 'стандартное'
+
+def compare_values(val1, val2, tolerance: float = 0.01) -> bool:
+    """
+    Сравнивает два значения с учётом погрешности для float
+    """
+    if isinstance(val1, float) and isinstance(val2, float):
+        return abs(val1 - val2) < tolerance
+    return val1 == val2
+
+def compare_dicts(dict1: Dict, dict2: Dict, dict_name: str) -> Tuple[bool, List[str]]:
+    """
+    Сравнивает два словаря и возвращает (совпадают, список различий)
+    """
+    all_keys = set(dict1.keys()) | set(dict2.keys())
+    differences = []
+    
+    for key in all_keys:
+        val1 = dict1.get(key, 0)
+        val2 = dict2.get(key, 0)
+        
+        if not compare_values(val1, val2):
+            differences.append(f"    {key}: {val1} vs {val2}")
+    
+    return len(differences) == 0, differences
 
 def simplify_ingredients(input_file: str, output_file: str = "ingredients_simplified.json"):
     """
     Упрощает JSON с ингредиентами:
-    - Убирает "Большой мешок", "Солод", "Хмель", "Дрожжи" из названий
-    - Убирает указания качества из названий
+    - Убирает лишние слова из названий
     - Убирает поле Rate из параметров
-    - Оставляет только базовое название ингредиента
+    - Объединяет все вариации одного компонента
+    - Проверяет, что у всех вариаций одинаковые характеристики
     """
-    
-    def clean_name(name: str) -> str:
-        """
-        Улучшенная очистка названия ингредиента от лишних слов
-        """
-        # Убираем "Большой мешок" в начале
-        name = re.sub(r'^Большой мешок\s+', '', name)
-        
-        # Убираем "базового" если есть (может быть перед "солода")
-        name = re.sub(r'^базового\s+', '', name)
-        
-        # Убираем тип ингредиента в разных падежах
-        # Сначала пробуем убрать с окончаниями
-        name = re.sub(r'^(солод|солода|хмель|хмеля|дрожжи|дрожжей)\s+', '', name, flags=re.IGNORECASE)
-        
-        # Убираем качество в конце (с предшествующим пробелом)
-        name = re.sub(r'\s+(высокого|среднего|низкого)\s+качества$', '', name)
-        
-        # Финальная очистка от лишних пробелов
-        return name.strip()
-    
-    def extract_quality(name: str) -> str:
-        """
-        Извлекает качество из названия для информации
-        """
-        quality_match = re.search(r'(высокого|среднего|низкого)\s+качества', name)
-        return quality_match.group(1) if quality_match else 'стандартное'
     
     # Читаем исходный JSON
     with open(input_file, 'r', encoding='utf-8') as f:
         ingredients = json.load(f)
     
     print(f"📦 Загружено ингредиентов: {len(ingredients)}")
+    print("=" * 60)
     
-    # Группируем по базовому названию для анализа
-    groups = defaultdict(list)
-    simplified = []
-    
-    for item in ingredients:
-        clean_item = item.copy()
-        original_name = item['Name']
-        
-        # Очищаем название
-        base_name = clean_name(original_name)
-        clean_item['BaseName'] = base_name
-        clean_item['Quality'] = extract_quality(original_name)
-        clean_item['OriginalName'] = original_name  # сохраняем оригинал для справки
-        
-        # Убираем Rate из параметров
-        if 'Parameters' in clean_item:
-            clean_item['Parameters'] = {k: v for k, v in clean_item['Parameters'].items() 
-                                      if k != 'Rate'}
-        
-        simplified.append(clean_item)
-        
-        # Группируем для статистики
-        key = (base_name, clean_item['Type'])
-        groups[key].append(clean_item)
-    
-    # Сохраняем упрощённый JSON
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(simplified, f, ensure_ascii=False, indent=2)
-    
-    print(f"✅ Упрощённый JSON сохранён в: {output_file}")
-    
-    # Выводим статистику
-    print(f"\n📊 Статистика:")
-    print(f"  Всего ингредиентов: {len(simplified)}")
-    
-    # Показываем группы дубликатов
-    duplicate_groups = {k: v for k, v in groups.items() if len(v) > 1}
-    if duplicate_groups:
-        print(f"\n📦 Найдено групп с разным качеством:")
-        for (base_name, ing_type), variants in sorted(duplicate_groups.items()):
-            qualities = [v['Quality'] for v in variants]
-            # Показываем оригинальные названия для отладки
-            print(f"  • {base_name} ({ing_type}): {len(variants)} вариантов")
-            for v in variants:
-                print(f"    - {v['OriginalName']} → качество: {v['Quality']}")
-    
-    # Показываем уникальные ингредиенты
-    unique_count = len(groups)
-    print(f"\n🎯 Уникальных базовых ингредиентов: {unique_count}")
-    
-    return simplified
-
-def create_merged_json(input_file: str, output_file: str = "ingredients_merged.json", 
-                      strategy: str = 'separate'):
-    """
-    Создаёт ещё более упрощённый JSON, объединяя разные качества
-    strategy: 'separate' - оставить все варианты отдельно
-             'average' - усреднить все варианты
-             'best' - оставить только лучшее качество
-    """
-    
-    def clean_name(name: str) -> str:
-        """
-        Улучшенная очистка названия для группировки
-        """
-        # Убираем "Большой мешок"
-        name = re.sub(r'^Большой мешок\s+', '', name)
-        
-        # Убираем "базового"
-        name = re.sub(r'^базового\s+', '', name)
-        
-        # Убираем тип ингредиента
-        name = re.sub(r'^(солод|солода|хмель|хмеля|дрожжи|дрожжей)\s+', '', name, flags=re.IGNORECASE)
-        
-        # Убираем качество
-        name = re.sub(r'\s+(высокого|среднего|низкого)\s+качества$', '', name)
-        
-        return name.strip()
-    
-    def extract_quality_score(name: str) -> int:
-        """Преобразует качество в числовой рейтинг"""
-        if 'высокого' in name:
-            return 3
-        elif 'среднего' in name:
-            return 2
-        elif 'низкого' in name:
-            return 1
-        else:
-            return 2  # стандартное = среднее
-    
-    # Читаем исходный JSON
-    with open(input_file, 'r', encoding='utf-8') as f:
-        ingredients = json.load(f)
-    
-    print(f"\n📦 Обработка {len(ingredients)} ингредиентов...")
-    
-    # Группируем по базовому названию
+    # Группируем по базовому названию и типу
     groups = defaultdict(list)
     for item in ingredients:
         base_name = clean_name(item['Name'])
-        # Добавляем отладочный вывод для проблемных случаев
-        if 'Coldra' in item['Name']:
-            print(f"  Оригинал: '{item['Name']}' → Базовое: '{base_name}'")
+        quality = extract_quality(item['Name'])
         
-        item_with_base = item.copy()
-        item_with_base['BaseName'] = base_name
-        item_with_base['QualityScore'] = extract_quality_score(item['Name'])
-        groups[(base_name, item['Type'])].append(item_with_base)
+        # Убираем Rate из параметров
+        clean_params = {k: v for k, v in item['Parameters'].items() if k != 'Rate'}
+        
+        group_key = (base_name, item['Type'])
+        groups[group_key].append({
+            'original_name': item['Name'],
+            'quality': quality,
+            'perfect_temp': item['PerfectTemp'],
+            'styles': item['Styles'],
+            'params': clean_params
+        })
     
-    print(f"\n📊 Найдено уникальных групп: {len(groups)}")
+    print(f"\n🔍 Найдено уникальных компонентов: {len(groups)}")
+    print("-" * 60)
     
-    merged = []
+    simplified = []
+    has_inconsistencies = False
     
-    for (base_name, ing_type), variants in groups.items():
-        if strategy == 'separate' or len(variants) == 1:
-            # Оставляем все варианты отдельно
+    # Обрабатываем каждую группу
+    for (base_name, ing_type), variants in sorted(groups.items()):
+        print(f"\n📦 Компонент: {base_name} ({ing_type})")
+        print(f"   Вариантов: {len(variants)}")
+        
+        if len(variants) == 1:
+            # Если только один вариант, просто добавляем его
+            var = variants[0]
+            simplified.append({
+                'Name': base_name,
+                'Type': ing_type,
+                'PerfectTemp': var['perfect_temp'],
+                'Styles': var['styles'],
+                'Parameters': var['params']
+            })
+            print(f"   ✅ Единственный вариант")
+            continue
+        
+        # Проверяем, что все варианты имеют одинаковые характеристики
+        reference = variants[0]
+        all_match = True
+        inconsistencies = []
+        
+        for i, var in enumerate(variants[1:], 2):
+            var_differences = []
+            
+            # Проверяем температуру
+            if var['perfect_temp'] != reference['perfect_temp']:
+                all_match = False
+                var_differences.append(f"      Температура: {reference['perfect_temp']}°C vs {var['perfect_temp']}°C")
+            
+            # Проверяем стили
+            styles_match, style_diffs = compare_dicts(reference['styles'], var['styles'], "Styles")
+            if not styles_match:
+                all_match = False
+                var_differences.append("      Различия в стилях:")
+                var_differences.extend(style_diffs)
+            
+            # Проверяем параметры
+            params_match, param_diffs = compare_dicts(reference['params'], var['params'], "Parameters")
+            if not params_match:
+                all_match = False
+                var_differences.append("      Различия в параметрах:")
+                var_differences.extend(param_diffs)
+            
+            if var_differences:
+                inconsistencies.append(f"\n   Вариант {i} ({var['quality']} качество):")
+                inconsistencies.extend(var_differences)
+        
+        if all_match:
+            # Все варианты одинаковые - берём любой (первый)
+            simplified.append({
+                'Name': base_name,
+                'Type': ing_type,
+                'PerfectTemp': reference['perfect_temp'],
+                'Styles': reference['styles'],
+                'Parameters': reference['params']
+            })
+            print(f"   ✅ Все {len(variants)} вариантов идентичны")
+            print(f"      Качества: {', '.join(v['quality'] for v in variants)}")
+        else:
+            # Есть различия - выводим предупреждение
+            has_inconsistencies = True
+            print(f"   ⚠️  ВНИМАНИЕ! Обнаружены различия между вариантами:")
+            
+            # Показываем все варианты с их характеристиками
+            for i, var in enumerate(variants, 1):
+                print(f"\n      Вариант {i} ({var['quality']} качество):")
+                print(f"         Оригинал: {var['original_name']}")
+                print(f"         Температура: {var['perfect_temp']}°C")
+                print(f"         Стили: {var['styles']}")
+                print(f"         Параметры: {var['params']}")
+            
+            # Выводим детальные различия
+            print(f"\n      Детальные различия:")
+            for diff in inconsistencies:
+                print(diff)
+            
+            # Всё равно добавляем все варианты отдельно
+            print(f"\n      ➕ Добавляю все варианты отдельно")
             for var in variants:
-                clean_var = {
-                    'Name': base_name,
+                simplified.append({
+                    'Name': f"{base_name} ({var['quality']})",
                     'Type': ing_type,
-                    'PerfectTemp': var['PerfectTemp'],
-                    'Styles': var['Styles'],
-                    'Parameters': {k: v for k, v in var['Parameters'].items() if k != 'Rate'}
-                }
-                merged.append(clean_var)
-        
-        elif strategy == 'best':
-            # Берём вариант с наивысшим качеством
-            best = max(variants, key=lambda x: x['QualityScore'])
-            print(f"  Группа '{base_name}': выбрано лучшее качество из {len(variants)} вариантов")
-            
-            clean_var = {
-                'Name': base_name,
-                'Type': ing_type,
-                'PerfectTemp': best['PerfectTemp'],
-                'Styles': best['Styles'],
-                'Parameters': {k: v for k, v in best['Parameters'].items() if k != 'Rate'}
-            }
-            merged.append(clean_var)
-        
-        elif strategy == 'average':
-            # Усредняем все параметры
-            print(f"  Группа '{base_name}': усреднение {len(variants)} вариантов")
-            
-            avg_params = {}
-            avg_styles = {}
-            total_temp = 0
-            
-            # Собираем все параметры
-            all_params = set()
-            all_styles = set()
-            for var in variants:
-                all_params.update(var['Parameters'].keys())
-                all_styles.update(var['Styles'].keys())
-            
-            # Усредняем
-            for param in all_params:
-                if param == 'Rate':
-                    continue
-                values = [var['Parameters'].get(param, 0) for var in variants]
-                avg_params[param] = sum(values) / len(variants)
-            
-            for style in all_styles:
-                values = [var['Styles'].get(style, 0) for var in variants]
-                avg_styles[style] = sum(values) / len(variants)
-            
-            avg_temp = sum(var['PerfectTemp'] for var in variants) // len(variants)
-            
-            clean_var = {
-                'Name': base_name,
-                'Type': ing_type,
-                'PerfectTemp': avg_temp,
-                'Styles': avg_styles,
-                'Parameters': avg_params
-            }
-            merged.append(clean_var)
+                    'PerfectTemp': var['perfect_temp'],
+                    'Styles': var['styles'],
+                    'Parameters': var['params']
+                })
     
     # Сохраняем результат
     with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(merged, f, ensure_ascii=False, indent=2)
+        json.dump(simplified, f, ensure_ascii=False, indent=2)
     
-    print(f"\n✅ Объединённый JSON сохранён в: {output_file}")
-    print(f"  Стратегия: {strategy}")
-    print(f"  Было: {len(ingredients)} -> Стало: {len(merged)} ингредиентов")
+    print("\n" + "=" * 60)
+    print(f"\n✅ Упрощённый JSON сохранён в: {output_file}")
+    print(f"📊 Итоговая статистика:")
+    print(f"   Было ингредиентов: {len(ingredients)}")
+    print(f"   Стало ингредиентов: {len(simplified)}")
     
-    return merged
-
-def inspect_problematic_names(input_file: str):
-    """
-    Функция для отладки - показывает все уникальные базовые названия
-    """
-    with open(input_file, 'r', encoding='utf-8') as f:
-        ingredients = json.load(f)
-    
-    def clean_name(name: str) -> str:
-        name = re.sub(r'^Большой мешок\s+', '', name)
-        name = re.sub(r'^базового\s+', '', name)
-        name = re.sub(r'^(солод|солода|хмель|хмеля|дрожжи|дрожжей)\s+', '', name, flags=re.IGNORECASE)
-        name = re.sub(r'\s+(высокого|среднего|низкого)\s+качества$', '', name)
-        return name.strip()
-    
-    print("\n🔍 АНАЛИЗ НАЗВАНИЙ:")
-    print("-" * 50)
-    
-    groups = defaultdict(list)
-    for item in ingredients:
-        base = clean_name(item['Name'])
-        groups[base].append(item['Name'])
-    
-    for base, originals in sorted(groups.items()):
-        if len(originals) > 1:
-            print(f"\n📦 '{base}' -> {len(originals)} вариантов:")
-            for orig in originals:
-                print(f"    • {orig}")
+    if has_inconsistencies:
+        print("\n⚠️  ВНИМАНИЕ! Обнаружены компоненты с разными характеристиками:")
+        print("   Они были сохранены как отдельные ингредиенты с указанием качества")
+        print("   Проверьте данные в оригинальном файле")
 
 def main():
-    print("="*60)
+    print("=" * 60)
     print("🛠️  УПРОЩЕНИЕ JSON С ИНГРЕДИЕНТАМИ")
-    print("="*60)
+    print("=" * 60)
     
     input_file = "ingredients.json"
+    output_file = "ingredients_simplified.json"
     
-    # Сначала анализируем проблемные названия
-    inspect_problematic_names(input_file)
-    
-    print("\n" + "="*60)
-    
-    # Вариант 1: Простое упрощение (сохраняем все варианты, но чистим названия)
-    # print("\n1️⃣ ПРОСТОЕ УПРОЩЕНИЕ")
-    # print("-" * 40)
-    # simplify_ingredients(input_file, "ingredients_simplified.json")
-    
-    # Вариант 2: Объединение с разными стратегиями
-    print("\n2️⃣ ОБЪЕДИНЕНИЕ ВАРИАНТОВ")
-    print("-" * 40)
-    
-    # print("\n📌 Стратегия: separate (все варианты отдельно)")
-    # create_merged_json(input_file, "ingredients_merged_separate.json", strategy='separate')
-    
-    print("\n📌 Стратегия: best (только лучшее качество)")
-    create_merged_json(input_file, "ingredients_merged_best.json", strategy='best')
-    
-    # print("\n📌 Стратегия: average (усреднение)")
-    # create_merged_json(input_file, "ingredients_merged_average.json", strategy='average')
-    
-    print("\n" + "="*60)
-    print("✅ ГОТОВО! Файлы сохранены:")
-    print("  • ingredients_simplified.json - очищенные названия, все варианты")
-    print("  • ingredients_merged_separate.json - базовые названия, все варианты")
-    print("  • ingredients_merged_best.json - только лучшее качество")
-    print("  • ingredients_merged_average.json - усреднённые значения")
-    print("="*60)
+    try:
+        simplify_ingredients(input_file, output_file)
+        
+        print("\n" + "=" * 60)
+        print("✅ ГОТОВО!")
+        print("=" * 60)
+        
+    except FileNotFoundError:
+        print(f"❌ Файл {input_file} не найден!")
+    except json.JSONDecodeError:
+        print(f"❌ Ошибка в формате JSON файла!")
+    except Exception as e:
+        print(f"❌ Ошибка: {e}")
 
 if __name__ == "__main__":
     main()

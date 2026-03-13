@@ -911,9 +911,9 @@
 		"Parameters": {
 			"Refreshment": 1,
 			"Heaviness": 5,
-			"Lightness": 2,
+			"Lightness": 1,
 			"Acidity": 3,
-			"Sweetness": 3,
+			"Sweetness": 4,
 			"Rate": 15
 		}
 	},
@@ -929,9 +929,9 @@
 		"Parameters": {
 			"Refreshment": 1,
 			"Heaviness": 5,
-			"Lightness": 2,
+			"Lightness": 1,
 			"Acidity": 3,
-			"Sweetness": 3,
+			"Sweetness": 4,
 			"Rate": 4
 		}
 	},
@@ -947,9 +947,9 @@
 		"Parameters": {
 			"Refreshment": 1,
 			"Heaviness": 5,
-			"Lightness": 2,
+			"Lightness": 1,
 			"Acidity": 3,
-			"Sweetness": 3,
+			"Sweetness": 4,
 			"Rate": 9
 		}
 	},
@@ -1901,9 +1901,9 @@
 		"Parameters": {
 			"Refreshment": 1,
 			"Heaviness": 5,
-			"Lightness": 2,
+			"Lightness": 1,
 			"Acidity": 3,
-			"Sweetness": 3,
+			"Sweetness": 4,
 			"Rate": 15
 		}
 	},
@@ -1919,9 +1919,9 @@
 		"Parameters": {
 			"Refreshment": 1,
 			"Heaviness": 5,
-			"Lightness": 2,
+			"Lightness": 1,
 			"Acidity": 3,
-			"Sweetness": 3,
+			"Sweetness": 4,
 			"Rate": 4
 		}
 	},
@@ -1937,9 +1937,9 @@
 		"Parameters": {
 			"Refreshment": 1,
 			"Heaviness": 5,
-			"Lightness": 2,
+			"Lightness": 1,
 			"Acidity": 3,
-			"Sweetness": 3,
+			"Sweetness": 4,
 			"Rate": 9
 		}
 	},

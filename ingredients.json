@@ -1,19 +1,19 @@
 [
   {
-    "Name": "Haller Gold",
-    "Type": "Malts",
-    "PerfectTemp": 65,
+    "Name": "Bavaria Cloud",
+    "Type": "Yeast",
+    "PerfectTemp": 12,
     "Styles": {
       "Ale_1": 0.15,
-      "Hefeweizen_1": 0.3,
-      "AmericanIpa_1": 0.05
+      "AmericanIpa_1": 0.1,
+      "Hefeweizen_1": 0.2
     },
     "Parameters": {
-      "Refreshment": 4,
-      "Heaviness": 0,
+      "Refreshment": 5,
+      "Heaviness": 1,
       "Lightness": 4,
-      "Acidity": 1,
-      "Sweetness": 3
+      "Acidity": 2,
+      "Sweetness": 4
     }
   },
   {
@@ -34,23 +34,6 @@
     }
   },
   {
-    "Name": "Coldra Pale",
-    "Type": "Malts",
-    "PerfectTemp": 65,
-    "Styles": {
-      "Ale_1": 0.1,
-      "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.15
-    },
-    "Parameters": {
-      "Refreshment": 2,
-      "Heaviness": 4,
-      "Lightness": 1,
-      "Acidity": 4,
-      "Sweetness": 0
-    }
-  },
-  {
     "Name": "Carmond Amber",
     "Type": "Malts",
     "PerfectTemp": 65,
@@ -65,74 +48,6 @@
       "Lightness": 0,
       "Acidity": 3,
       "Sweetness": 1
-    }
-  },
-  {
-    "Name": "Clearbase Pale",
-    "Type": "Malts",
-    "PerfectTemp": 65,
-    "Styles": {
-      "Ale_1": 0.2,
-      "Hefeweizen_1": 0.1,
-      "AmericanIpa_1": 0.25
-    },
-    "Parameters": {
-      "Refreshment": 4,
-      "Heaviness": 2,
-      "Lightness": 5,
-      "Acidity": 1,
-      "Sweetness": 3
-    }
-  },
-  {
-    "Name": "Deepfield Red",
-    "Type": "Malts",
-    "PerfectTemp": 65,
-    "Styles": {
-      "Ale_1": 0.1,
-      "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.1
-    },
-    "Parameters": {
-      "Refreshment": 3,
-      "Heaviness": 3,
-      "Lightness": 3,
-      "Acidity": 3,
-      "Sweetness": 3
-    }
-  },
-  {
-    "Name": "Silken What",
-    "Type": "Malts",
-    "PerfectTemp": 65,
-    "Styles": {
-      "Ale_1": 0.1,
-      "Hefeweizen_1": 0.3,
-      "AmericanIpa_1": 0.08
-    },
-    "Parameters": {
-      "Refreshment": 3,
-      "Heaviness": 1,
-      "Lightness": 5,
-      "Acidity": 2,
-      "Sweetness": 3
-    }
-  },
-  {
-    "Name": "Fuggwell",
-    "Type": "Hops",
-    "PerfectTemp": 95,
-    "Styles": {
-      "Ale_1": 0.25,
-      "Hefeweizen_1": 0.1,
-      "AmericanIpa_1": 0.1
-    },
-    "Parameters": {
-      "Refreshment": 1,
-      "Heaviness": 4,
-      "Lightness": 1,
-      "Acidity": 1,
-      "Sweetness": 2
     }
   },
   {
@@ -153,23 +68,6 @@
     }
   },
   {
-    "Name": "Haller Bruck",
-    "Type": "Hops",
-    "PerfectTemp": 95,
-    "Styles": {
-      "Ale_1": 0.1,
-      "Hefeweizen_1": 0.2,
-      "AmericanIpa_1": 0
-    },
-    "Parameters": {
-      "Refreshment": 3,
-      "Heaviness": 4,
-      "Lightness": 1,
-      "Acidity": 2,
-      "Sweetness": 0
-    }
-  },
-  {
     "Name": "Citrivale",
     "Type": "Hops",
     "PerfectTemp": 95,
@@ -184,108 +82,6 @@
       "Lightness": 1,
       "Acidity": 5,
       "Sweetness": 2
-    }
-  },
-  {
-    "Name": "Farnwood Flora",
-    "Type": "Hops",
-    "PerfectTemp": 95,
-    "Styles": {
-      "Ale_1": 0.2,
-      "Hefeweizen_1": 0.15,
-      "AmericanIpa_1": 0.1
-    },
-    "Parameters": {
-      "Refreshment": 3,
-      "Heaviness": 0,
-      "Lightness": 4,
-      "Acidity": 1,
-      "Sweetness": 5
-    }
-  },
-  {
-    "Name": "Tropicflare",
-    "Type": "Hops",
-    "PerfectTemp": 95,
-    "Styles": {
-      "Ale_1": 0.15,
-      "Hefeweizen_1": 0.27,
-      "AmericanIpa_1": 0.35
-    },
-    "Parameters": {
-      "Refreshment": 3,
-      "Heaviness": 3,
-      "Lightness": 5,
-      "Acidity": 4,
-      "Sweetness": 0
-    }
-  },
-  {
-    "Name": "Yeastwell",
-    "Type": "Yeast",
-    "PerfectTemp": 12,
-    "Styles": {
-      "Ale_1": 0.25,
-      "Hefeweizen_1": 0.1,
-      "AmericanIpa_1": 0.1
-    },
-    "Parameters": {
-      "Refreshment": 2,
-      "Heaviness": 2,
-      "Lightness": 2,
-      "Acidity": 2,
-      "Sweetness": 2
-    }
-  },
-  {
-    "Name": "Fermix",
-    "Type": "Yeast",
-    "PerfectTemp": 12,
-    "Styles": {
-      "Ale_1": 0.1,
-      "Hefeweizen_1": 0.2,
-      "AmericanIpa_1": 0.1
-    },
-    "Parameters": {
-      "Refreshment": 2,
-      "Heaviness": 0,
-      "Lightness": 4,
-      "Acidity": 2,
-      "Sweetness": 4
-    }
-  },
-  {
-    "Name": "Wild Hopcell",
-    "Type": "Yeast",
-    "PerfectTemp": 12,
-    "Styles": {
-      "Ale_1": 0.1,
-      "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.15
-    },
-    "Parameters": {
-      "Refreshment": 5,
-      "Heaviness": 1,
-      "Lightness": 3,
-      "Acidity": 5,
-      "Sweetness": 2
-    }
-  },
-  {
-    "Name": "Bavaria Cloud",
-    "Type": "Yeast",
-    "PerfectTemp": 12,
-    "Styles": {
-      "Ale_1": 0.15,
-      "AmericanIpa_1": 0.1,
-      "Hefeweizen_1": 0.2
-    },
-    "Parameters": {
-      "Refreshment": 5,
-      "Heaviness": 1,
-      "Lightness": 4,
-      "Acidity": 2,
-      "Sweetness": 4
     }
   },
   {
@@ -306,6 +102,142 @@
     }
   },
   {
+    "Name": "Clearbase Pale",
+    "Type": "Malts",
+    "PerfectTemp": 65,
+    "Styles": {
+      "Ale_1": 0.2,
+      "Hefeweizen_1": 0.1,
+      "AmericanIpa_1": 0.25
+    },
+    "Parameters": {
+      "Refreshment": 4,
+      "Heaviness": 2,
+      "Lightness": 5,
+      "Acidity": 1,
+      "Sweetness": 3
+    }
+  },
+  {
+    "Name": "Coldra Pale",
+    "Type": "Malts",
+    "PerfectTemp": 65,
+    "Styles": {
+      "Ale_1": 0.1,
+      "Hefeweizen_1": 0,
+      "AmericanIpa_1": 0.15
+    },
+    "Parameters": {
+      "Refreshment": 2,
+      "Heaviness": 4,
+      "Lightness": 1,
+      "Acidity": 4,
+      "Sweetness": 0
+    }
+  },
+  {
+    "Name": "Deepfield Red",
+    "Type": "Malts",
+    "PerfectTemp": 65,
+    "Styles": {
+      "Ale_1": 0.1,
+      "Hefeweizen_1": 0,
+      "AmericanIpa_1": 0.1
+    },
+    "Parameters": {
+      "Refreshment": 3,
+      "Heaviness": 3,
+      "Lightness": 3,
+      "Acidity": 3,
+      "Sweetness": 3
+    }
+  },
+  {
+    "Name": "Farnwood Flora",
+    "Type": "Hops",
+    "PerfectTemp": 95,
+    "Styles": {
+      "Ale_1": 0.2,
+      "Hefeweizen_1": 0.15,
+      "AmericanIpa_1": 0.1
+    },
+    "Parameters": {
+      "Refreshment": 3,
+      "Heaviness": 0,
+      "Lightness": 4,
+      "Acidity": 1,
+      "Sweetness": 5
+    }
+  },
+  {
+    "Name": "Fermix",
+    "Type": "Yeast",
+    "PerfectTemp": 12,
+    "Styles": {
+      "Ale_1": 0.1,
+      "Hefeweizen_1": 0.2,
+      "AmericanIpa_1": 0.1
+    },
+    "Parameters": {
+      "Refreshment": 2,
+      "Heaviness": 0,
+      "Lightness": 4,
+      "Acidity": 2,
+      "Sweetness": 4
+    }
+  },
+  {
+    "Name": "Fuggwell",
+    "Type": "Hops",
+    "PerfectTemp": 95,
+    "Styles": {
+      "Ale_1": 0.25,
+      "Hefeweizen_1": 0.1,
+      "AmericanIpa_1": 0.1
+    },
+    "Parameters": {
+      "Refreshment": 1,
+      "Heaviness": 4,
+      "Lightness": 1,
+      "Acidity": 1,
+      "Sweetness": 2
+    }
+  },
+  {
+    "Name": "Haller Bruck",
+    "Type": "Hops",
+    "PerfectTemp": 95,
+    "Styles": {
+      "Ale_1": 0.1,
+      "Hefeweizen_1": 0.2,
+      "AmericanIpa_1": 0
+    },
+    "Parameters": {
+      "Refreshment": 3,
+      "Heaviness": 4,
+      "Lightness": 1,
+      "Acidity": 2,
+      "Sweetness": 0
+    }
+  },
+  {
+    "Name": "Haller Gold",
+    "Type": "Malts",
+    "PerfectTemp": 65,
+    "Styles": {
+      "Ale_1": 0.15,
+      "Hefeweizen_1": 0.3,
+      "AmericanIpa_1": 0.05
+    },
+    "Parameters": {
+      "Refreshment": 4,
+      "Heaviness": 0,
+      "Lightness": 4,
+      "Acidity": 1,
+      "Sweetness": 3
+    }
+  },
+  {
     "Name": "Rustic Crown",
     "Type": "Yeast",
     "PerfectTemp": 12,
@@ -317,9 +249,77 @@
     "Parameters": {
       "Refreshment": 1,
       "Heaviness": 5,
-      "Lightness": 2,
+      "Lightness": 1,
       "Acidity": 3,
+      "Sweetness": 4
+    }
+  },
+  {
+    "Name": "Silken What",
+    "Type": "Malts",
+    "PerfectTemp": 65,
+    "Styles": {
+      "Ale_1": 0.1,
+      "Hefeweizen_1": 0.3,
+      "AmericanIpa_1": 0.08
+    },
+    "Parameters": {
+      "Refreshment": 3,
+      "Heaviness": 1,
+      "Lightness": 5,
+      "Acidity": 2,
       "Sweetness": 3
+    }
+  },
+  {
+    "Name": "Tropicflare",
+    "Type": "Hops",
+    "PerfectTemp": 95,
+    "Styles": {
+      "Ale_1": 0.15,
+      "Hefeweizen_1": 0.27,
+      "AmericanIpa_1": 0.35
+    },
+    "Parameters": {
+      "Refreshment": 3,
+      "Heaviness": 3,
+      "Lightness": 5,
+      "Acidity": 4,
+      "Sweetness": 0
+    }
+  },
+  {
+    "Name": "Wild Hopcell",
+    "Type": "Yeast",
+    "PerfectTemp": 12,
+    "Styles": {
+      "Ale_1": 0.1,
+      "Hefeweizen_1": 0,
+      "AmericanIpa_1": 0.15
+    },
+    "Parameters": {
+      "Refreshment": 5,
+      "Heaviness": 1,
+      "Lightness": 3,
+      "Acidity": 5,
+      "Sweetness": 2
+    }
+  },
+  {
+    "Name": "Yeastwell",
+    "Type": "Yeast",
+    "PerfectTemp": 12,
+    "Styles": {
+      "Ale_1": 0.25,
+      "Hefeweizen_1": 0.1,
+      "AmericanIpa_1": 0.1
+    },
+    "Parameters": {
+      "Refreshment": 2,
+      "Heaviness": 2,
+      "Lightness": 2,
+      "Acidity": 2,
+      "Sweetness": 2
     }
   }
 ]

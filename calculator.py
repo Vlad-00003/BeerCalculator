@@ -614,7 +614,7 @@ def print_help():
 def main():
     """Main function with continuous input loop"""
     print("="*60)
-    print("🍺 CRAFTING CALCULATOR (v2.1)")
+    print("🍺 CRAFTING CALCULATOR (v2.2)")
     print("="*60)
     
     # Specify path to prepared JSON file
