@@ -17,11 +17,12 @@ class Ingredient:
         return f"Ingredient(name='{self.name}', type='{self.type}')"
 
 class CraftCalculator:
-    # Style translation dictionary
+    # Style translation dictionary (UPDATED with Stout)
     STYLE_TRANSLATION = {
         'Ale_1': 'Bristford Ale',
         'Hefeweizen_1': 'Hallbruck Hellas',
-        'AmericanIpa_1': 'Cascadear IPA'
+        'AmericanIpa_1': 'Cascadear IPA',
+        'Stout_1': 'Stout'
     }
     
     # Reverse dictionary for user input lookup
@@ -496,24 +497,6 @@ class CraftCalculator:
         if save_to_file:
             self.save_coverage_to_file(target_style, solutions)
     
-    def find_combinations_by_params(self, target_style: str, required_params: List[str]) -> List[Dict]:
-        """
-        Find all combinations with given parameters (excluding ties)
-        """
-        target_style_code = self.translate_style(target_style, to_user=False)
-        formatted_params = [p.capitalize() for p in required_params]
-        
-        results = []
-        for malt in self.malts:
-            for hop in self.hops:
-                for yeast in self.yeast:
-                    result = self.calculate_result(malt, hop, yeast)
-                    if 'error' not in result and not result['is_tie'] and result['style'] == target_style_code:
-                        if all(param in result['active_params'] for param in formatted_params):
-                            results.append(result)
-        
-        return results
-    
     def print_combinations(self, target_style: str, target_params: List[str] = None):
         """
         Print found combinations (excluding ties)
@@ -594,11 +577,12 @@ def print_help():
     print("     • Bristford Ale")
     print("     • Hallbruck Hellas")
     print("     • Cascadear IPA")
+    print("     • Stout")
     print("\n  ⚡ PARAMETERS:")
     print("     • Refreshment, Heaviness, Lightness, Acidity, Sweetness")
     print("\n  📝 EXAMPLES:")
     print("     • Bristford Ale")
-    print("     • Hallbruck Hellas lightness refreshment")
+    print("     • Stout lightness heaviness")
     print("     • cascadear ipa sweetness")
     print("\n  🎯 SPECIAL COMMANDS:")
     print("     • cover <style> - find minimal set covering all properties")
@@ -614,7 +598,7 @@ def print_help():
 def main():
     """Main function with continuous input loop"""
     print("="*60)
-    print("🍺 CRAFTING CALCULATOR (v2.2)")
+    print("🍺 CRAFTING CALCULATOR (v 2.3)")
     print("="*60)
     
     # Specify path to prepared JSON file
@@ -655,7 +639,7 @@ def main():
                 
                 # Handle cover command
                 if user_input.lower().startswith('cover '):
-                    style = user_input[6:].strip()  # Remove 'cover ' from start
+                    style = user_input[6:].strip()
                     if style:
                         calculator.print_minimal_coverage(style, save_to_file=True)
                     else:

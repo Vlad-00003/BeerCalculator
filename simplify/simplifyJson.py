@@ -5,32 +5,32 @@ from typing import Dict, List, Tuple, Set
 
 def clean_name(name: str) -> str:
     """
-    Очищает название ингредиента от лишних слов
+    Cleans ingredient name from extra words
     """
-    # Убираем "Большой мешок" в начале
+    # Remove "Большой мешок" from start
     name = re.sub(r'^Большой мешок\s+', '', name)
     
-    # Убираем "базового" если есть
+    # Remove "базового" if present
     name = re.sub(r'^базового\s+', '', name)
     
-    # Убираем тип ингредиента в разных падежах
+    # Remove ingredient type in different cases
     name = re.sub(r'^(солод|солода|хмель|хмеля|дрожжи|дрожжей)\s+', '', name, flags=re.IGNORECASE)
     
-    # Убираем качество в конце
+    # Remove quality at the end
     name = re.sub(r'\s+(высокого|среднего|низкого)\s+качества$', '', name)
     
     return name.strip()
 
 def extract_quality(name: str) -> str:
     """
-    Извлекает качество из названия
+    Extracts quality from name
     """
     quality_match = re.search(r'(высокого|среднего|низкого)\s+качества', name)
-    return quality_match.group(1) if quality_match else 'стандартное'
+    return quality_match.group(1) if quality_match else 'standard'
 
 def compare_values(val1, val2, tolerance: float = 0.01) -> bool:
     """
-    Сравнивает два значения с учётом погрешности для float
+    Compare two values with tolerance for floats
     """
     if isinstance(val1, float) and isinstance(val2, float):
         return abs(val1 - val2) < tolerance
@@ -38,7 +38,7 @@ def compare_values(val1, val2, tolerance: float = 0.01) -> bool:
 
 def compare_dicts(dict1: Dict, dict2: Dict, dict_name: str) -> Tuple[bool, List[str]]:
     """
-    Сравнивает два словаря и возвращает (совпадают, список различий)
+    Compare two dictionaries and return (match, differences)
     """
     all_keys = set(dict1.keys()) | set(dict2.keys())
     differences = []
@@ -54,27 +54,27 @@ def compare_dicts(dict1: Dict, dict2: Dict, dict_name: str) -> Tuple[bool, List[
 
 def simplify_ingredients(input_file: str, output_file: str = "ingredients_simplified.json"):
     """
-    Упрощает JSON с ингредиентами:
-    - Убирает лишние слова из названий
-    - Убирает поле Rate из параметров
-    - Объединяет все вариации одного компонента
-    - Проверяет, что у всех вариаций одинаковые характеристики
+    Simplifies ingredients JSON:
+    - Removes extra words from names
+    - Removes Rate field from parameters
+    - Groups all variations of the same component
+    - Checks that all variations have same characteristics
     """
     
-    # Читаем исходный JSON
+    # Read source JSON
     with open(input_file, 'r', encoding='utf-8') as f:
         ingredients = json.load(f)
     
-    print(f"📦 Загружено ингредиентов: {len(ingredients)}")
+    print(f"📦 Loaded ingredients: {len(ingredients)}")
     print("=" * 60)
     
-    # Группируем по базовому названию и типу
+    # Group by base name and type
     groups = defaultdict(list)
     for item in ingredients:
         base_name = clean_name(item['Name'])
         quality = extract_quality(item['Name'])
         
-        # Убираем Rate из параметров
+        # Remove Rate from parameters
         clean_params = {k: v for k, v in item['Parameters'].items() if k != 'Rate'}
         
         group_key = (base_name, item['Type'])
@@ -86,19 +86,19 @@ def simplify_ingredients(input_file: str, output_file: str = "ingredients_simpli
             'params': clean_params
         })
     
-    print(f"\n🔍 Найдено уникальных компонентов: {len(groups)}")
+    print(f"\n🔍 Unique components found: {len(groups)}")
     print("-" * 60)
     
     simplified = []
     has_inconsistencies = False
     
-    # Обрабатываем каждую группу
+    # Process each group
     for (base_name, ing_type), variants in sorted(groups.items()):
-        print(f"\n📦 Компонент: {base_name} ({ing_type})")
-        print(f"   Вариантов: {len(variants)}")
+        print(f"\n📦 Component: {base_name} ({ing_type})")
+        print(f"   Variants: {len(variants)}")
         
         if len(variants) == 1:
-            # Если только один вариант, просто добавляем его
+            # If only one variant, just add it
             var = variants[0]
             simplified.append({
                 'Name': base_name,
@@ -107,10 +107,10 @@ def simplify_ingredients(input_file: str, output_file: str = "ingredients_simpli
                 'Styles': var['styles'],
                 'Parameters': var['params']
             })
-            print(f"   ✅ Единственный вариант")
+            print(f"   ✅ Single variant")
             continue
         
-        # Проверяем, что все варианты имеют одинаковые характеристики
+        # Check if all variants have same characteristics
         reference = variants[0]
         all_match = True
         inconsistencies = []
@@ -118,31 +118,31 @@ def simplify_ingredients(input_file: str, output_file: str = "ingredients_simpli
         for i, var in enumerate(variants[1:], 2):
             var_differences = []
             
-            # Проверяем температуру
+            # Check temperature
             if var['perfect_temp'] != reference['perfect_temp']:
                 all_match = False
-                var_differences.append(f"      Температура: {reference['perfect_temp']}°C vs {var['perfect_temp']}°C")
+                var_differences.append(f"      Temperature: {reference['perfect_temp']}°C vs {var['perfect_temp']}°C")
             
-            # Проверяем стили
+            # Check styles
             styles_match, style_diffs = compare_dicts(reference['styles'], var['styles'], "Styles")
             if not styles_match:
                 all_match = False
-                var_differences.append("      Различия в стилях:")
+                var_differences.append("      Style differences:")
                 var_differences.extend(style_diffs)
             
-            # Проверяем параметры
+            # Check parameters
             params_match, param_diffs = compare_dicts(reference['params'], var['params'], "Parameters")
             if not params_match:
                 all_match = False
-                var_differences.append("      Различия в параметрах:")
+                var_differences.append("      Parameter differences:")
                 var_differences.extend(param_diffs)
             
             if var_differences:
-                inconsistencies.append(f"\n   Вариант {i} ({var['quality']} качество):")
+                inconsistencies.append(f"\n   Variant {i} ({var['quality']} quality):")
                 inconsistencies.extend(var_differences)
         
         if all_match:
-            # Все варианты одинаковые - берём любой (первый)
+            # All variants identical - take any (first)
             simplified.append({
                 'Name': base_name,
                 'Type': ing_type,
@@ -150,28 +150,28 @@ def simplify_ingredients(input_file: str, output_file: str = "ingredients_simpli
                 'Styles': reference['styles'],
                 'Parameters': reference['params']
             })
-            print(f"   ✅ Все {len(variants)} вариантов идентичны")
-            print(f"      Качества: {', '.join(v['quality'] for v in variants)}")
+            print(f"   ✅ All {len(variants)} variants are identical")
+            print(f"      Qualities: {', '.join(v['quality'] for v in variants)}")
         else:
-            # Есть различия - выводим предупреждение
+            # Differences found - show warning
             has_inconsistencies = True
-            print(f"   ⚠️  ВНИМАНИЕ! Обнаружены различия между вариантами:")
+            print(f"   ⚠️  WARNING! Differences detected between variants:")
             
-            # Показываем все варианты с их характеристиками
+            # Show all variants with their characteristics
             for i, var in enumerate(variants, 1):
-                print(f"\n      Вариант {i} ({var['quality']} качество):")
-                print(f"         Оригинал: {var['original_name']}")
-                print(f"         Температура: {var['perfect_temp']}°C")
-                print(f"         Стили: {var['styles']}")
-                print(f"         Параметры: {var['params']}")
+                print(f"\n      Variant {i} ({var['quality']} quality):")
+                print(f"         Original: {var['original_name']}")
+                print(f"         Temperature: {var['perfect_temp']}°C")
+                print(f"         Styles: {var['styles']}")
+                print(f"         Parameters: {var['params']}")
             
-            # Выводим детальные различия
-            print(f"\n      Детальные различия:")
+            # Show detailed differences
+            print(f"\n      Detailed differences:")
             for diff in inconsistencies:
                 print(diff)
             
-            # Всё равно добавляем все варианты отдельно
-            print(f"\n      ➕ Добавляю все варианты отдельно")
+            # Still add all variants separately
+            print(f"\n      ➕ Adding all variants separately")
             for var in variants:
                 simplified.append({
                     'Name': f"{base_name} ({var['quality']})",
@@ -181,24 +181,24 @@ def simplify_ingredients(input_file: str, output_file: str = "ingredients_simpli
                     'Parameters': var['params']
                 })
     
-    # Сохраняем результат
+    # Save result
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(simplified, f, ensure_ascii=False, indent=2)
     
     print("\n" + "=" * 60)
-    print(f"\n✅ Упрощённый JSON сохранён в: {output_file}")
-    print(f"📊 Итоговая статистика:")
-    print(f"   Было ингредиентов: {len(ingredients)}")
-    print(f"   Стало ингредиентов: {len(simplified)}")
+    print(f"\n✅ Simplified JSON saved to: {output_file}")
+    print(f"📊 Final statistics:")
+    print(f"   Original ingredients: {len(ingredients)}")
+    print(f"   Simplified ingredients: {len(simplified)}")
     
     if has_inconsistencies:
-        print("\n⚠️  ВНИМАНИЕ! Обнаружены компоненты с разными характеристиками:")
-        print("   Они были сохранены как отдельные ингредиенты с указанием качества")
-        print("   Проверьте данные в оригинальном файле")
+        print("\n⚠️  WARNING! Components with different characteristics found:")
+        print("   They were saved as separate ingredients with quality indicators")
+        print("   Check the original file for data consistency")
 
 def main():
     print("=" * 60)
-    print("🛠️  УПРОЩЕНИЕ JSON С ИНГРЕДИЕНТАМИ")
+    print("🛠️  INGREDIENT JSON SIMPLIFIER")
     print("=" * 60)
     
     input_file = "ingredients.json"
@@ -208,15 +208,15 @@ def main():
         simplify_ingredients(input_file, output_file)
         
         print("\n" + "=" * 60)
-        print("✅ ГОТОВО!")
+        print("✅ DONE!")
         print("=" * 60)
         
     except FileNotFoundError:
-        print(f"❌ Файл {input_file} не найден!")
+        print(f"❌ File {input_file} not found!")
     except json.JSONDecodeError:
-        print(f"❌ Ошибка в формате JSON файла!")
+        print(f"❌ JSON format error!")
     except Exception as e:
-        print(f"❌ Ошибка: {e}")
+        print(f"❌ Error: {e}")
 
 if __name__ == "__main__":
     main()

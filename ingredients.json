@@ -6,7 +6,8 @@
     "Styles": {
       "Ale_1": 0.15,
       "AmericanIpa_1": 0.1,
-      "Hefeweizen_1": 0.2
+      "Hefeweizen_1": 0.2,
+      "Stout_1": 0.12
     },
     "Parameters": {
       "Refreshment": 5,
@@ -17,13 +18,32 @@
     }
   },
   {
+    "Name": "Brightcrush",
+    "Type": "Malts",
+    "PerfectTemp": 65,
+    "Styles": {
+      "Ale_1": 0.2,
+      "Hefeweizen_1": 0.2,
+      "AmericanIpa_1": 0.05,
+      "Stout_1": 0.1
+    },
+    "Parameters": {
+      "Refreshment": 4,
+      "Heaviness": 0,
+      "Lightness": 3,
+      "Acidity": 0,
+      "Sweetness": 4
+    }
+  },
+  {
     "Name": "Bristford Brown",
     "Type": "Malts",
     "PerfectTemp": 65,
     "Styles": {
       "Ale_1": 0.35,
       "Hefeweizen_1": 0.25,
-      "AmericanIpa_1": 0.1
+      "AmericanIpa_1": 0.1,
+      "Stout_1": 0.05
     },
     "Parameters": {
       "Refreshment": 3,
@@ -40,7 +60,8 @@
     "Styles": {
       "Ale_1": 0.15,
       "AmericanIpa_1": 0.2,
-      "Hefeweizen_1": 0.1
+      "Hefeweizen_1": 0.1,
+      "Stout_1": 0.3
     },
     "Parameters": {
       "Refreshment": 2,
@@ -57,7 +78,8 @@
     "Styles": {
       "Ale_1": 0.15,
       "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.3
+      "AmericanIpa_1": 0.3,
+      "Stout_1": 0.2
     },
     "Parameters": {
       "Refreshment": 3,
@@ -74,7 +96,8 @@
     "Styles": {
       "Ale_1": 0.1,
       "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.25
+      "AmericanIpa_1": 0.25,
+      "Stout_1": 0.1
     },
     "Parameters": {
       "Refreshment": 2,
@@ -91,7 +114,8 @@
     "Styles": {
       "Ale_1": 0.1,
       "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.2
+      "AmericanIpa_1": 0.2,
+      "Stout_1": 0
     },
     "Parameters": {
       "Refreshment": 3,
@@ -108,7 +132,8 @@
     "Styles": {
       "Ale_1": 0.2,
       "Hefeweizen_1": 0.1,
-      "AmericanIpa_1": 0.25
+      "AmericanIpa_1": 0.25,
+      "Stout_1": 0.5
     },
     "Parameters": {
       "Refreshment": 4,
@@ -125,7 +150,8 @@
     "Styles": {
       "Ale_1": 0.1,
       "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.15
+      "AmericanIpa_1": 0.15,
+      "Stout_1": 0.1
     },
     "Parameters": {
       "Refreshment": 2,
@@ -142,7 +168,8 @@
     "Styles": {
       "Ale_1": 0.1,
       "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.1
+      "AmericanIpa_1": 0.1,
+      "Stout_1": 0.15
     },
     "Parameters": {
       "Refreshment": 3,
@@ -159,7 +186,8 @@
     "Styles": {
       "Ale_1": 0.2,
       "Hefeweizen_1": 0.15,
-      "AmericanIpa_1": 0.1
+      "AmericanIpa_1": 0.1,
+      "Stout_1": 0
     },
     "Parameters": {
       "Refreshment": 3,
@@ -176,7 +204,8 @@
     "Styles": {
       "Ale_1": 0.1,
       "Hefeweizen_1": 0.2,
-      "AmericanIpa_1": 0.1
+      "AmericanIpa_1": 0.1,
+      "Stout_1": 0
     },
     "Parameters": {
       "Refreshment": 2,
@@ -193,7 +222,8 @@
     "Styles": {
       "Ale_1": 0.25,
       "Hefeweizen_1": 0.1,
-      "AmericanIpa_1": 0.1
+      "AmericanIpa_1": 0.1,
+      "Stout_1": 0.05
     },
     "Parameters": {
       "Refreshment": 1,
@@ -210,7 +240,8 @@
     "Styles": {
       "Ale_1": 0.1,
       "Hefeweizen_1": 0.2,
-      "AmericanIpa_1": 0
+      "AmericanIpa_1": 0,
+      "Stout_1": 0.2
     },
     "Parameters": {
       "Refreshment": 3,
@@ -227,7 +258,8 @@
     "Styles": {
       "Ale_1": 0.15,
       "Hefeweizen_1": 0.3,
-      "AmericanIpa_1": 0.05
+      "AmericanIpa_1": 0.05,
+      "Stout_1": 0.1
     },
     "Parameters": {
       "Refreshment": 4,
@@ -238,13 +270,50 @@
     }
   },
   {
+    "Name": "Lemoncrest",
+    "Type": "Hops",
+    "PerfectTemp": 95,
+    "Styles": {
+      "Ale_1": 0.06,
+      "Hefeweizen_1": 0.1,
+      "AmericanIpa_1": 0.2,
+      "Stout_1": 0.18
+    },
+    "Parameters": {
+      "Refreshment": 1,
+      "Heaviness": 3,
+      "Lightness": 0,
+      "Acidity": 4,
+      "Sweetness": 2
+    }
+  },
+  {
+    "Name": "Oldshire",
+    "Type": "Yeast",
+    "PerfectTemp": 12,
+    "Styles": {
+      "Ale_1": 0.12,
+      "Hefeweizen_1": 0.07,
+      "AmericanIpa_1": 0.16,
+      "Stout_1": 0.3
+    },
+    "Parameters": {
+      "Refreshment": 3,
+      "Heaviness": 4,
+      "Lightness": 1,
+      "Acidity": 1,
+      "Sweetness": 4
+    }
+  },
+  {
     "Name": "Rustic Crown",
     "Type": "Yeast",
     "PerfectTemp": 12,
     "Styles": {
       "Ale_1": 0.15,
       "Hefeweizen_1": 0.05,
-      "AmericanIpa_1": 0.12
+      "AmericanIpa_1": 0.12,
+      "Stout_1": 0.2
     },
     "Parameters": {
       "Refreshment": 1,
@@ -278,7 +347,8 @@
     "Styles": {
       "Ale_1": 0.15,
       "Hefeweizen_1": 0.27,
-      "AmericanIpa_1": 0.35
+      "AmericanIpa_1": 0.35,
+      "Stout_1": 0
     },
     "Parameters": {
       "Refreshment": 3,
@@ -295,7 +365,8 @@
     "Styles": {
       "Ale_1": 0.1,
       "Hefeweizen_1": 0,
-      "AmericanIpa_1": 0.15
+      "AmericanIpa_1": 0.15,
+      "Stout_1": 0.1
     },
     "Parameters": {
       "Refreshment": 5,
@@ -312,7 +383,8 @@
     "Styles": {
       "Ale_1": 0.25,
       "Hefeweizen_1": 0.1,
-      "AmericanIpa_1": 0.1
+      "AmericanIpa_1": 0.1,
+      "Stout_1": 0.05
     },
     "Parameters": {
       "Refreshment": 2,
